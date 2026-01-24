@@ -1,0 +1,905 @@
+/* LessonsManagement Styles - Isolated with parent container */
+.lessons-management {
+  padding: 30px;
+  min-height: 100vh;
+  background: #f8fafc;
+
+}
+
+.lessons-management .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.lessons-management .page-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  background: linear-gradient(135deg, #46c5e5 0%, #3a88ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lessons-management .btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lessons-management .btn-primary {
+  background: linear-gradient(135deg, #46c5e5 0%, #3a88ed 100%);
+  color: white;
+}
+
+.lessons-management .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+.lessons-management .btn-primary:active {
+  transform: translateY(0);
+}
+
+.lessons-management .btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.lessons-management .btn-secondary:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.2);
+}
+
+.lessons-management .btn-info {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+
+.lessons-management .btn-info:hover {
+  background: #bfdbfe;
+  transform: translateY(-2px);
+}
+
+.lessons-management .btn-danger {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.lessons-management .btn-danger:hover {
+  background: #fecaca;
+  transform: translateY(-2px);
+}
+
+.lessons-management .btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.lessons-management .btn-outline {
+  background: transparent;
+  color: #4f46e5;
+  border: 2px solid #4f46e5;
+}
+
+.lessons-management .btn-outline:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.lessons-management .alert {
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lessons-management .alert-error {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.lessons-management .alert-error::before {
+  content: '⚠️';
+  font-size: 16px;
+}
+
+.lessons-management .loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 16px;
+}
+
+.lessons-management .loading-container .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f1f5f9;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: lessons-spin 1s linear infinite;
+}
+
+@keyframes lessons-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.lessons-management .loading-container p {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.lessons-management .table-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.lessons-management .data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lessons-management .data-table thead {
+  background: linear-gradient(135deg, #46c5e5 0%, #3a88ed 100%);
+}
+
+.lessons-management .data-table th {
+  padding: 18px 20px;
+  text-align: left;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+}
+
+.lessons-management .data-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.lessons-management .data-table tbody tr:hover {
+  background: #f8fafc;
+  transform: translateX(4px);
+}
+
+.lessons-management .data-table td {
+  padding: 16px 20px;
+  color: #475569;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.lessons-management .data-table td strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.lessons-management .data-table code {
+  background: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+  font-size: 13px;
+  color: #4f46e5;
+  border: 1px solid #e2e8f0;
+}
+
+.lessons-management .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.lessons-management .action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.lessons-management .empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.lessons-management .empty-state p {
+  color: #64748b;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Modal Styles */
+.lessons-management .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: lessons-modal-fade 0.3s ease;
+}
+
+@keyframes lessons-modal-fade {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+  }
+}
+
+.lessons-management .modal {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  animation: lessons-modal-slide 0.3s ease;
+  overflow: hidden;
+}
+
+.lessons-management .modal-wide {
+  max-width: 800px;
+}
+
+@keyframes lessons-modal-slide {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lessons-management .modal-header {
+  padding: 24px 30px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lessons-management .modal-header h2 {
+  font-size: 24px;
+  color: #1e293b;
+  margin: 0;
+  background:linear-gradient(135deg, #46c5e5 0%, #3a88ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lessons-management .close-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #94a3b8;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.lessons-management .close-button:hover {
+  background: #f1f5f9;
+  color: #dc2626;
+  transform: rotate(90deg);
+}
+
+.lessons-management .modal-form {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.lessons-management .form-group {
+  margin-bottom: 24px;
+}
+
+.lessons-management .form-group label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.lessons-management .btn-example {
+  padding: 6px 12px;
+  background: #f1f5f9;
+  color: #4f46e5;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lessons-management .btn-example:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.lessons-management .form-group input,
+.lessons-management .form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1e293b;
+  background: white;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.lessons-management .form-group textarea {
+  min-height: 200px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.lessons-management .form-group input:focus,
+.lessons-management .form-group textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.lessons-management .form-group input::placeholder,
+.lessons-management .form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.lessons-management .help-text {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.lessons-management .help-text a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.lessons-management .help-text a:hover {
+  text-decoration: underline;
+}
+
+.lessons-management .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* JSON Syntax Highlighting */
+.lessons-management .form-group textarea {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.lessons-management .form-group textarea:focus {
+  background: white;
+  border-color: #4f46e5;
+}
+
+/* Section Preview (Optional) */
+.lessons-management .sections-preview {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.lessons-management .sections-preview h4 {
+  margin: 0 0 12px 0;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.lessons-management .sections-preview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lessons-management .sections-preview li {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #475569;
+}
+
+/* Add these styles to your existing lessons-management CSS */
+
+/* Improved Table Styles */
+.lessons-management .lesson-topic {
+  font-size: 15px;
+  color: #1e293b;
+}
+
+.lessons-management .lesson-description small {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  line-height: 1.4;
+}
+
+.lessons-management .lesson-slug {
+  font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+  font-size: 13px;
+  background: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.lessons-management .lesson-url small a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.lessons-management .lesson-url small a:hover {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+.lessons-management .badge-sections {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.lessons-management .date-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.lessons-management .date {
+  font-size: 13px;
+  color: #475569;
+}
+
+/* Empty State Improvements */
+.lessons-management .empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.lessons-management .empty-state h3 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 20px;
+}
+
+.lessons-management .empty-state p {
+  color: #64748b;
+  margin: 0 0 20px 0;
+}
+
+/* Form Section Styles */
+.lessons-management .form-section {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.lessons-management .form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.lessons-management .form-section-title {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.lessons-management .label-help {
+  display: block;
+  font-weight: normal;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Slug Input Group */
+.lessons-management .slug-input-group {
+  display: flex;
+  align-items: center;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.lessons-management .slug-input-group:focus-within {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.lessons-management .slug-prefix {
+  padding: 14px 16px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 14px;
+  border-right: 2px solid #e2e8f0;
+}
+
+.lessons-management .slug-input {
+  border: none;
+  border-radius: 0;
+  flex: 1;
+}
+
+.lessons-management .url-preview {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.lessons-management .url-preview code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #4f46e5;
+}
+
+/* Sections Container */
+.lessons-management .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.lessons-management .section-header .btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  color: white;
+  border: none;
+}
+
+.lessons-management .section-header .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.lessons-management .sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lessons-management .section-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.lessons-management .section-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.lessons-management .section-card .section-header {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.lessons-management .section-title {
+  font-size: 16px;
+  color: #1e293b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lessons-management .section-badge {
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lessons-management .section-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.lessons-management .btn-icon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.lessons-management .btn-icon:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.lessons-management .btn-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lessons-management .btn-icon-danger {
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.lessons-management .btn-icon-danger:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.lessons-management .section-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lessons-management .anchor-preview {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.lessons-management .anchor-preview code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #4f46e5;
+}
+
+.lessons-management .textarea-content {
+  font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 150px;
+}
+
+.lessons-management .content-tips {
+  margin-top: 6px;
+}
+
+.lessons-management .content-tips small {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/* Form Actions Improvements */
+.lessons-management .form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.lessons-management .form-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.lessons-management .stats-item {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.lessons-management .stats-item strong {
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.lessons-management .form-action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.lessons-management .icon {
+  margin-right: 6px;
+}
+
+/* Modal Scroll Improvements */
+.lessons-management .modal-form {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+
+
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .lessons-management .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .lessons-management .form-actions {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  
+  .lessons-management .form-stats {
+    justify-content: space-between;
+  }
+  
+  .lessons-management .form-action-buttons {
+    flex-direction: column;
+  }
+  
+  .lessons-management .form-action-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lessons-management {
+    padding: 20px;
+  }
+  
+  .lessons-management .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .lessons-management .page-header h1 {
+    font-size: 24px;
+  }
+  
+  .lessons-management .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .lessons-management .data-table {
+    font-size: 13px;
+  }
+  
+  .lessons-management .data-table th,
+  .lessons-management .data-table td {
+    padding: 12px 16px;
+  }
+  
+  .lessons-management .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .lessons-management .modal {
+    max-height: 85vh;
+  }
+  
+  .lessons-management .modal-header,
+  .lessons-management .modal-form {
+    padding: 20px;
+  }
+  
+  .lessons-management .form-actions {
+    flex-direction: column;
+  }
+  
+  .lessons-management .form-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .lessons-management .data-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .lessons-management .modal-wide {
+    max-width: 100%;
+  }
+  
+  .lessons-management .form-group label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .lessons-management .btn-example {
+    align-self: flex-start;
+  }
+}
+

@@ -1,0 +1,174 @@
+
+
+
+.landing .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #eaf3ff 0%, #ffffff 100%);
+    position: relative;
+}
+
+.landing .hero-text {
+    max-width: 480px;
+}
+
+.landing .hero-text h1 {
+   
+    color: #3a88ed;
+    background: linear-gradient(135deg, #46c5e5 0%, #3a88ed 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    line-height: 48px;
+    transition: 0.3s ease;
+}
+
+.landing .hero-text h1:hover {
+    transform: translateY(-5px);
+}
+
+.landing .hero-text p {
+    font-size: 24px;
+    margin-top: 33px;
+    margin-bottom: 37px;
+    transition: 0.3s ease;
+}
+
+.landing .hero-text p:hover {
+    transform: translateY(-5px);
+}
+
+.landing .hero-img {
+    width: 40%;
+    height: 320px;
+    border-radius: 10px;
+}
+
+.landing .btn {
+    background: linear-gradient(135deg, #46c5e5 0%, #3a88ed 100%);
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.3s;
+    color: white;
+    text-decoration: none;
+}
+
+.landing .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* === COURSES === */
+
+.landing .course-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 10px;
+}
+
+.landing .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.landing .card {
+    position: relative;
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    z-index: 1;
+    height: 260px;
+}
+
+.landing .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+    border-radius: 16px 16px 0 0;
+    z-index: 2;
+}
+
+.landing .card h3 {
+    color: #2D3748;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.landing .card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #258CF4, #4ECDC4);
+    border-radius: 3px;
+}
+
+.landing .card p {
+    color: #718096;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.landing .card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #258CF4, #45B7D1);
+    padding: 12px;
+    border-radius: 12px;
+    filter: drop-shadow(0 4px 6px rgba(37, 140, 244, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.landing .card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12),
+                0 4px 8px rgba(37, 140, 244, 0.1);
+    border-color: rgba(37, 140, 244, 0.3);
+}
+
+.landing .card:hover img {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.landing .card:hover h3::after {
+    width: 60px;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .landing .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .landing .hero-img {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .landing .course-cards {
+        grid-template-columns: 1fr;
+    }
+}

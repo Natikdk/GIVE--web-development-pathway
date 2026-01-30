@@ -98,6 +98,50 @@
     font-size: 0.95rem;
 }
 
+/* Section Quiz Styling */
+.lesson-container .section-quiz {
+    margin: 40px 0;
+    padding: 0;
+}
+
+.lesson-container .section-quiz h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lesson-container .section-quiz h3::before {
+    content: "🎯";
+    font-size: 1.2rem;
+}
+
+.lesson-container .quiz-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #4dabf7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+}
+
+.lesson-container .quiz-toggle-btn:hover {
+    background: #3b9ae6;
+    transform: translateY(-2px);
+}
+
+.lesson-container .quiz-toggle-btn:active {
+    transform: translateY(0);
+}
+
 /* Loading and error states */
 .loading, .error, .empty {
     text-align: center;

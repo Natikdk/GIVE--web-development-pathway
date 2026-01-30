@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
-    // Basic validation
+   
     if (!name || !email || !message) {
       return res.status(400).json({ 
         success: false, 
@@ -16,7 +16,6 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ 
@@ -25,7 +24,7 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Save to database
+    //Save to database
     const contact = new Contact({
       name,
       email,
@@ -54,7 +53,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get all contacts (for admin - add authentication later)
+
 router.get("/", async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });

@@ -1,4 +1,4 @@
-// backend/src/routes/admin.js
+
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
@@ -7,14 +7,14 @@ const Contact = require("../models/Contact");
 const Lesson = require("../models/Lesson");
 const auth = require("../middleware/auth");
 
-// ===== AUTHENTICATION =====
 
-// Admin login
+
+
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find admin
+  
     const admin = await Admin.findOne({ email });
     if (!admin) {
       return res.status(401).json({
@@ -23,7 +23,7 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // Check password
+   
     const isMatch = await admin.comparePassword(password);
     if (!isMatch) {
       return res.status(401).json({
@@ -32,11 +32,10 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // Update last login
     admin.lastLogin = new Date();
     await admin.save();
 
-    // Generate token
+  
     const token = jwt.sign(
       { adminId: admin._id, email: admin.email, role: admin.role },
       process.env.JWT_SECRET || 'your-secret-key',
@@ -88,7 +87,7 @@ router.get("/profile", auth, async (req, res) => {
   }
 });
 
-// ===== DASHBOARD STATS =====
+//dashboard stats
 router.get("/dashboard/stats", auth, async (req, res) => {
   try {
     const [
@@ -120,16 +119,16 @@ router.get("/dashboard/stats", auth, async (req, res) => {
   }
 });
 
-// ===== CONTACT MANAGEMENT =====
+// contact management routes
 
-// Get all contacts with filters
+
 router.get("/contacts", auth, async (req, res) => {
   try {
     const { status, page = 1, limit = 20, search } = req.query;
     
     const query = {};
     
-    // Filter by status
+    //by the way aron  this is for your filter by status
     if (status && status !== 'all') {
       query.status = status;
     }

@@ -3,14 +3,13 @@ const router = express.Router();
 const Lesson = require("../models/Lesson");
 
 
-// Get all lessons - INCLUDE sections for the count
+
 router.get("/", async (req, res) => {
   try {
-    // Use .select() to explicitly include sections
+   
     const lessons = await Lesson.find({}).select("topic slug sections");
     
-    console.log(`API /lessons: Returning ${lessons.length} lessons`);
-    console.log('First lesson sections count:', lessons[0]?.sections?.length || 0);
+   
     
     res.json(lessons);
   } catch (err) {
@@ -19,7 +18,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get lesson by slug
+
 router.get("/:slug", async (req, res) => {
   try {
     const lesson = await Lesson.findOne({ slug: req.params.slug });
@@ -28,7 +27,7 @@ router.get("/:slug", async (req, res) => {
       return res.status(404).json({ message: "Lesson not found" });
     }
 
-    console.log(`API /lessons/${req.params.slug}: Returning lesson with ${lesson.sections?.length || 0} sections`);
+   
     res.json(lesson);
   } catch (err) {
     console.error('Error fetching lesson:', err);

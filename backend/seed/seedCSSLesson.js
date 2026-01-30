@@ -8,7 +8,7 @@ console.log('Environment file path:', envPath);
 console.log('MONGO_URI loaded?', !!process.env.MONGO_URI);
 
 if (!process.env.MONGO_URI) {
-    console.error('❌ ERROR: MONGO_URI is not defined!');
+    console.error(' ERROR: MONGO_URI is not defined!');
     process.exit(1);
 }
 
@@ -49,37 +49,35 @@ const cssLessonData = {
 };
 const seedDatabase = async () => {
   try {
-    console.log('🌱 Starting database seeding...');
+    console.log(' Starting database seeding...');
     console.log('Mongoose version:', mongoose.version);
     
-    // Connect to MongoDB - MODERN SYNTAX (no options needed)
     await mongoose.connect(process.env.MONGO_URI);
     
-    console.log('✅ MongoDB connected successfully');
+    console.log(' MongoDB connected successfully');
     
-    // Clear existing CSS lesson
+    
     const deleteResult = await Lesson.deleteMany({ slug: 'css' });
-    console.log(`🗑️ Deleted ${deleteResult.deletedCount} existing CSS lessons`);
+    console.log(` Deleted ${deleteResult.deletedCount} existing CSS lessons`);
     
-    // Create new lesson
     const cssLesson = new Lesson(cssLessonData);
     await cssLesson.save();
     
-    console.log('✅ CSS lesson seeded successfully!');
-    console.log(`📚 Lesson ID: ${cssLesson._id}`);
-    console.log(`🔗 Slug: ${cssLesson.slug}`);
-    console.log(`📖 Sections: ${cssLesson.sections.length}`);
+    console.log('CSS lesson seeded successfully!');
+    console.log(`Lesson ID: ${cssLesson._id}`);
+    console.log(`Slug: ${cssLesson.slug}`);
+    console.log(`Sections: ${cssLesson.sections.length}`);
     
     
     const verifyLesson = await Lesson.findOne({ slug: 'css' });
-    console.log(`✅ Verification: Found lesson "${verifyLesson.topic}" with ${verifyLesson.sections.length} sections`);
+    console.log(`Verification: Found lesson "${verifyLesson.topic}" with ${verifyLesson.sections.length} sections`);
     
   } catch (error) {
-    console.error('❌ SEEDING FAILED:', error.message);
+    console.error(' SEEDING FAILED:', error.message);
     console.error('Full error:', error);
     
     if (error.message.includes('timed out')) {
-      console.log('\n💡 TROUBLESHOOTING:');
+      console.log('\n TROUBLESHOOTING:');
       console.log('1. Check your internet connection');
       console.log('2. Make sure MongoDB Atlas cluster is running');
       console.log('3. Whitelist your IP in MongoDB Atlas:');
@@ -99,7 +97,7 @@ const seedDatabase = async () => {
   } finally {
     if (mongoose.connection.readyState === 1) {
       await mongoose.connection.close();
-      console.log('🔌 Connection closed');
+      console.log(' Connection closed');
     }
     process.exit(0);
   }

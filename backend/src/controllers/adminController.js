@@ -23,7 +23,7 @@ const adminController = {
     }
 
     // Routes with authentication
-   
+   if (method === 'GET' && pathname === '/api/admin/profile') return adminController.getProfile(req, res, authResult.adminId);
     if (method === 'GET' && pathname === '/api/admin/dashboard/stats') return adminController.getDashboardStats(req, res);
     if (method === 'GET' && pathname === '/api/admin/lessons') return adminController.getAllLessons(req, res);
     if (method === 'POST' && pathname === '/api/admin/lessons') return adminController.createLesson(req, res);
@@ -68,6 +68,22 @@ const adminController = {
         res.end(JSON.stringify({ success: false, message: 'Server error' }));
       }
     });
+  },
+
+  getProfile: async (req, res, adminId) => {
+    try {
+      const admin = await Admin.findById(adminId).select('-password');
+      if (!admin) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, message: 'Admin not found' }));
+        return;
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: true, admin }));
+    } catch (error) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: false, message: 'Server error' }));
+    }
   },
 
   verifyToken: async (req) => {

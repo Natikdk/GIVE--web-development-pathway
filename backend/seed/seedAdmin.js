@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const envPath = path.join(__dirname, '../.env');
 require('dotenv').config({ path: envPath });
 
-console.log('🌱 Creating admin account...');
+console.log('Creating admin account...');
 console.log('Loading .env from:', envPath);
 console.log('MONGO_URI loaded?', !!process.env.MONGO_URI);
 console.log('Mongoose version:', mongoose.version);
